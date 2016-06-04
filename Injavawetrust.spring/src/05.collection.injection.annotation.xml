@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<context:component-scan base-package="_05.collection.injection.model"></context:component-scan>
+
+	<util:list id="myAnnotationList">
+		<value>test list1</value>
+		<value>test list2</value>
+	</util:list>
+
+	<util:list id="myAnnotationPersonList">
+		<ref bean="personId1" />
+		<bean id="personId2" class="_05.collection.injection.model.Person">
+			<property name="name" value="test name2" />
+			<property name="surname" value="test surname2" />
+		</bean>
+
+		<bean id="personId3" class="_05.collection.injection.model.Person">
+			<property name="name" value="test name3" />
+			<property name="surname" value="test surname3" />
+		</bean>
+
+		<bean id="personId4" class="_05.collection.injection.model.Person">
+			<property name="name" value="test name4" />
+			<property name="surname" value="test surname4" />
+		</bean>
+
+	</util:list>
+
+	<util:set id="myAnnotationSet">
+		<value type="int">10</value>
+		<value type="int">20</value>
+	</util:set>
+
+
+	<util:map id="myAnnotationMap">
+		<entry key="key1">
+			<value>value1</value>
+		</entry>
+
+		<entry key="key2">
+			<value>value2</value>
+		</entry>
+	</util:map>
+
+	<util:properties id="myAnnotationProperties">
+		<prop key="propkey">propvalue</prop>
+		<prop key="propkey2">propvalue2</prop>
+	</util:properties>
+
+	<bean id="personId1" class="_05.collection.injection.model.Person">
+		<property name="name" value="test name" />
+		<property name="surname" value="test surname" />
+	</bean>
+
+</beans>

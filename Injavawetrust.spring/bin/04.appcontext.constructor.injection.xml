@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="empId" class="_04.constructor.injection.model.Employee">
+		<constructor-arg value="Levent"/>
+		<constructor-arg value="Erguder"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="1989"/>
+		<constructor-arg value="M"/>
+	</bean>
+	
+	<bean id="empId2" class="_04.constructor.injection.model.Employee"
+		c:name="Test" 
+		c:surname="TestSurname" 
+		c:salary="100" 
+		c:birthYear="1989"
+		c:gender='M' />
+		
+	<bean id="constructorConfuseId"	class="_04.constructor.injection.model.ConstructorConfuse">
+		<constructor-arg>
+			<value>100</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="constructorConfuseId2" class="_04.constructor.injection.model.ConstructorConfuse">
+		<constructor-arg type="int">
+			<value>100</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="computerId" class="_04.constructor.injection.model.Computer">
+		<constructor-arg value="Acer 7741G"/>
+		<constructor-arg value="500"/>
+		<constructor-arg ref="keyboardId"/>
+	</bean>
+	
+	<bean id="keyboardId" class="_04.constructor.injection.model.Keyboard">
+		<constructor-arg value="K360"/>
+	</bean>
+
+</beans>

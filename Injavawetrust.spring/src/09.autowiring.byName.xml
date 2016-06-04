@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="employeeId" class="_09.autowiring.byName.model.Employee"
+		autowire="byName">
+		<property name="name" value="Levent" />
+		<property name="surname" value="Erguder" />
+	</bean>
+
+
+	<bean id="addressByName" class="_09.autowiring.byName.model.Address">
+		<property name="city" value="Istanbul" />
+	</bean>
+
+	<bean id="addressId" class="_09.autowiring.byName.model.Address">
+		<property name="city" value="Istanbul - Not used autowire byName" />
+	</bean>
+
+</beans>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="collectionId" class="_05.collection.injection.model.CollectionInjection">
+		<property name="myList">
+			<list>
+				<value>list element1</value>
+				<value>list element2</value>
+				<value>list element3</value>
+				<value>list element4</value>
+			</list>
+		</property>
+
+		<property name="personList">
+			<list>
+				<ref bean="personId1" />
+
+				<bean id="personId2" class="_05.collection.injection.model.Person">
+					<property name="name" value="test name2" />
+					<property name="surname" value="test surname2" />
+				</bean>
+
+				<bean id="personId3" class="_05.collection.injection.model.Person">
+					<property name="name" value="test name3" />
+					<property name="surname" value="test surname3" />
+				</bean>
+
+				<bean id="personId4" class="_05.collection.injection.model.Person">
+					<property name="name" value="test name4" />
+					<property name="surname" value="test surname4" />
+				</bean>
+
+			</list>
+		</property>
+
+		<property name="mySet">
+			<set>
+				<value>10</value>
+				<value>10</value>
+				<value>20</value>
+				<value>20</value>
+				<value>30</value>
+				<value>40</value>
+				<value>50</value>
+			</set>
+		</property>
+
+		<property name="myMap">
+			<map>
+				<entry key="key1">
+					<value>value1</value>
+				</entry>
+				<entry key="key2">
+					<value>value2</value>
+				</entry>
+				<entry key="key3" value="value3" />
+				<entry key="key4">
+					<bean id="personId1" class="_05.collection.injection.model.Person">
+						<property name="name" value="map name" />
+						<property name="surname" value="map surname" />
+					</bean>
+				</entry>
+				<entry key="key5">
+					<ref bean="personId1" />
+				</entry>
+				<entry key="key6" value-ref="personId1" />
+			</map>
+		</property>
+
+		<property name="myProperties">
+			<props>
+				<prop key="prop1">propvalue1</prop>
+				<prop key="prop2">propvalue2</prop>
+				<prop key="prop3">propvalue3</prop>
+				<prop key="prop4">propvalue4</prop>
+				<prop key="prop5">propvalue5</prop>
+			</props>
+		</property>
+
+	</bean>
+
+
+	<bean id="personId1" class="_05.collection.injection.model.Person">
+		<property name="name" value="test name" />
+		<property name="surname" value="test surname" />
+	</bean>
+
+</beans>
