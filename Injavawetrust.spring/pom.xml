@@ -19,7 +19,8 @@
 	</build>
 
 	<properties>
-		<spring.version>4.2.4.RELEASE</spring.version>
+	    <!--last update : 22.10.2016  -->
+		<spring.version>4.3.3.RELEASE</spring.version>
 	</properties>
 
 	<repositories>
