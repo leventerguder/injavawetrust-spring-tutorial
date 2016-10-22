@@ -11,9 +11,10 @@ public class AutowiringSterotypeTest {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("13.autowiring.sterotype.xml");
+		
 		EmployeeService employeeService = ctx.getBean("employeeService", EmployeeService.class);
 		Employee employee = ctx.getBean("employee", Employee.class);			
-		employeeService.getEmployeeDAO().insertEmployee(employee);
+		employeeService.insertEmployee(employee);
 		
 		((ClassPathXmlApplicationContext) ctx).close();
 		

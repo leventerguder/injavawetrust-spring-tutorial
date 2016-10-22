@@ -5,6 +5,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 @Component
+//default olarak value sinif ismi ile aynidir camelCase yapida olur.
+//@Component(value="department")
 public class Department {
 
 	@Resource(name = "departmentId")
