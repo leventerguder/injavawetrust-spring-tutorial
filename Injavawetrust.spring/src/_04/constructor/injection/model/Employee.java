@@ -7,10 +7,6 @@ public class Employee {
 	private int birthYear;
 	private char gender;
 
-	public Employee(){
-		//default constructor tanimlanmalidir.
-	}
-	
 	public Employee(String name, String surname, long salary, int birthYear, char gender) {
 		super();
 		this.name = name;

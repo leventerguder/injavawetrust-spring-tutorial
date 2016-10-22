@@ -24,6 +24,7 @@ public class Computer {
 	public void setKeyboard(Keyboard keyboard) {
 		this.keyboard = keyboard;
 	}
+
 	@Override
 	public String toString() {
 		return "Computer [brand=" + brand + ", price=" + price + ", keyboard=" + keyboard + "]";

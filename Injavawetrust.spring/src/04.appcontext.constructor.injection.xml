@@ -27,9 +27,7 @@
 	</bean>
 	
 	<bean id="constructorConfuseId2" class="_04.constructor.injection.model.ConstructorConfuse">
-		<constructor-arg type="int">
-			<value>100</value>
-		</constructor-arg>
+		<constructor-arg type="int" value="100"/>				
 	</bean>
 	
 	<bean id="computerId" class="_04.constructor.injection.model.Computer">

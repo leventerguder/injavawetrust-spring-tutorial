@@ -5,10 +5,6 @@ public class ConstructorConfuse {
 	private String strProperty;
 	private int intProperty;
 
-	public ConstructorConfuse() {
-
-	}
-
 	public ConstructorConfuse(String strProperty) {
 		super();
 		this.strProperty = strProperty;
@@ -23,6 +19,5 @@ public class ConstructorConfuse {
 	public String toString() {
 		return "ConstructorConfuse [strProperty=" + strProperty + ", intProperty=" + intProperty + "]";
 	}
-	
 
 }

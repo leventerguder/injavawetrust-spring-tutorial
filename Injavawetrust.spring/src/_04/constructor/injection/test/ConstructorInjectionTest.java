@@ -11,6 +11,7 @@ import _04.constructor.injection.model.Employee;
 public class ConstructorInjectionTest {
 
 	public static void main(String[] args) {
+		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("04.appcontext.constructor.injection.xml");
 		Employee employee = ctx.getBean("empId", Employee.class);
 		Employee employee2 = ctx.getBean("empId2", Employee.class);
@@ -28,5 +29,6 @@ public class ConstructorInjectionTest {
 		System.out.println(computer);
 		
 		((ClassPathXmlApplicationContext) ctx).close();
+		
 	}
 }

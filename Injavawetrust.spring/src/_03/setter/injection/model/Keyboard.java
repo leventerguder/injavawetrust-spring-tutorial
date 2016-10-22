@@ -16,5 +16,5 @@ public class Keyboard {
 	public String toString() {
 		return "Keyboard [model=" + model + "]";
 	}
-	
+
 }

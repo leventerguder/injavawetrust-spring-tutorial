@@ -6,10 +6,6 @@ public class Computer {
 	private int price;
 	private Keyboard keyboard;
 
-	public Computer() {
-
-	}
-
 	public Computer(String brand, int price, Keyboard keyboard) {
 		super();
 		this.brand = brand;
