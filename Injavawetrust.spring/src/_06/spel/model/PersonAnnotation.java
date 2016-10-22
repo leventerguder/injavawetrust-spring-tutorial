@@ -5,12 +5,16 @@ import org.springframework.stereotype.Service;
 
 @Service("personIdAnnotation")
 public class PersonAnnotation {
+	
 	@Value("#{configIdAnnotation.name}")
 	private String name;
+	
 	@Value("#{configIdAnnotation.surname}")
 	private String surname;
+	
 	@Value("#{configIdAnnotation.gender}")
 	private char gender;
+	
 	@Value("#{configIdAnnotation.birthYear}")
 	private int birthYear;
 

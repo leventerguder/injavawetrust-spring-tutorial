@@ -5,13 +5,13 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="configId" class="_06.spel.model.InjectSimpleConfig" />
+	<bean id="configXML" class="_06.spel.model.InjectSimpleConfig" />
 
-	<bean id="personId" class="_06.spel.model.Person">
-		<property name="name" value="#{configId.name}"/>
-		<property name="surname" value="#{configId.surname}"/>
-		<property name="gender" value="#{configId.gender}"/>
-		<property name="birthYear" value="#{configId.birthYear}"/>
+	<bean id="personIdXML" class="_06.spel.model.Person">
+		<property name="name" value="#{configXML.name}"/>
+		<property name="surname" value="#{configXML.surname}"/>
+		<property name="gender" value="#{configXML.gender}"/>
+		<property name="birthYear" value="#{configXML.birthYear}"/>
 	</bean>
 
 </beans>

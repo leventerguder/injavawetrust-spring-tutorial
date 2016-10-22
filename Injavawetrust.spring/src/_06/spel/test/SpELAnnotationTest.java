@@ -12,7 +12,6 @@ public class SpELAnnotationTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("06.spel.annotation.xml");
 
 		PersonAnnotation personAnnotationBean = ctx.getBean("personIdAnnotation", PersonAnnotation.class);
-
 		System.out.println(personAnnotationBean);
 
 		((ClassPathXmlApplicationContext) ctx).close();

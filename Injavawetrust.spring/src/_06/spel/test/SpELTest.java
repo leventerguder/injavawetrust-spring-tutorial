@@ -10,7 +10,7 @@ public class SpELTest {
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("06.spel.xml");
 
-		Person person = ctx.getBean("personId", Person.class);
+		Person person = ctx.getBean("personIdXML", Person.class);
 		System.out.println(person);
 
 		((ClassPathXmlApplicationContext) ctx).close();
