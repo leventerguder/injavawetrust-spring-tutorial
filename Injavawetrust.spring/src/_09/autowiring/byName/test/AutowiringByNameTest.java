@@ -11,7 +11,6 @@ public class AutowiringByNameTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("09.autowiring.byName.xml");
 
 		Employee employee = ctx.getBean("employeeId", Employee.class);
-
 		System.out.println(employee);
 
 		((ClassPathXmlApplicationContext) ctx).close();

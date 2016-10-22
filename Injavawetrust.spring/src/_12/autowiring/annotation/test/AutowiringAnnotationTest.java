@@ -12,7 +12,6 @@ public class AutowiringAnnotationTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("12.autowiring.annotation.xml");
 
 		Employee employee = ctx.getBean("employeeId", Employee.class);
-
 		System.out.println(employee);
 
 		((ClassPathXmlApplicationContext) ctx).close();

@@ -11,7 +11,6 @@ public class AutowiringConstructorTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("11.autowiring.constructor.xml");
 
 		Employee employee = ctx.getBean("employeeId", Employee.class);
-
 		System.out.println(employee);
 
 		((ClassPathXmlApplicationContext) ctx).close();
