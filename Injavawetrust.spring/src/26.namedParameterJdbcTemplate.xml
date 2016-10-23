@@ -19,10 +19,6 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
-	<bean id="personDAOServiceId" class="_26.namedParameterJdbcTemplate.service.PersonDAOService">
-		<constructor-arg ref="personDAOImplId" />
-	</bean>
-
 	<bean id="personDAOImplId" class="_26.namedParameterJdbcTemplate.dao.PersonDAOImpl">
 		<property name="dataSource" ref="dataSourceId" />
 	</bean>

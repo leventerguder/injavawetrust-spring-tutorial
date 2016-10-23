@@ -21,7 +21,8 @@ public class PersonDAOImpl implements PersonDAO {
 	private final static String SELECT_BYID = "select * from person where id=:id";
 	private final static String ALL_SELECT = "select * from person";
 	private final static String UPDATE_PERSON = "update person set name=:name , surname=:surname , birthYear=:birthYear where id=:id";
-	private final static String DELETE_PERSON = "delete person where id=:id";
+	private final static String DELETE_PERSON = "delete from person where id=:id";
+	private final static String DELETE_PERSON_ALL = "delete from person";
 
 	public void setDataSource(DataSource dataSource) {
 		namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
@@ -39,6 +40,7 @@ public class PersonDAOImpl implements PersonDAO {
 		// logging
 		System.out.println("Person is inserted... " + person);
 	}
+
 	@Override
 	public Person getPersonById(int id) {
 
@@ -63,6 +65,7 @@ public class PersonDAOImpl implements PersonDAO {
 		}
 		return personList;
 	}
+
 	@Override
 	public void update(Person person) {
 		// Map<String, Object> params = new HashMap<String, Object>();
@@ -84,6 +87,14 @@ public class PersonDAOImpl implements PersonDAO {
 		namedParameterJdbcTemplate.update(DELETE_PERSON, namedParameters);
 		// logging
 		System.out.println("Person is deleted... Id :" + id);
+	}
+
+	@Override
+	public void deleteAllPersons() {
+		SqlParameterSource namedParameters = new MapSqlParameterSource();
+		namedParameterJdbcTemplate.update(DELETE_PERSON_ALL, namedParameters);
+		// logging
+		System.out.println("All persons are deleted.");
 	}
 
 }
