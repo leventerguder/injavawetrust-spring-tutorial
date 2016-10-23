@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
 import _15.java.based.model.Employee;
 
 @Configuration
-@PropertySource(value = "classpath:15.javabased.properties")
+@PropertySource(value = "classpath:15.java.based.properties")
 @ComponentScan(basePackages = "_15.java.based.model")
 @ImportResource(value = "classpath:15.java.based.xml")
 public class JavaBasedConfiguration {

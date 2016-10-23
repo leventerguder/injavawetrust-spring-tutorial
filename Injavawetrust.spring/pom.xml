@@ -21,6 +21,7 @@
 	<properties>
 	    <!--last update : 22.10.2016  -->
 		<spring.version>4.3.3.RELEASE</spring.version>
+		<javax.inject.version>1</javax.inject.version>
 	</properties>
 
 	<repositories>
@@ -40,7 +41,7 @@
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
-			<version>1</version>
+			<version>${javax.inject.version}</version>
 		</dependency>
 
 		<dependency>

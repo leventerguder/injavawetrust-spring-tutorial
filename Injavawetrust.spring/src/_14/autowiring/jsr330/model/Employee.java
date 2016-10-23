@@ -10,8 +10,10 @@ public class Employee {
 
 	@Value(value = "Levent")
 	private String name;
+	
 	@Value(value = "Erguder")
 	private String surname;
+	
 	private Department department;
 
 	@Inject
