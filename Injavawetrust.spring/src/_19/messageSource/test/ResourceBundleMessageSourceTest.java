@@ -11,13 +11,16 @@ public class ResourceBundleMessageSourceTest {
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("19.messageSource.xml");
 
+		//resources/springMessages_xx.properties
 		String orderInformationUS = ctx.getMessage("order.information", 
 				new Object[]{"1000", "100", "$"}, Locale.US);
 
 		String orderInformationTR = ctx.getMessage("order.information", 
 				new Object[]{"1000", "100", "TL"}, new Locale("tr", "TR"));
 		
-		String noMessage = ctx.getMessage("customer",null, "guest" ,Locale.UK );
+		//There is no message in springMessages_XX.properties files
+		//"guest" will be used 		
+		String noMessage = ctx.getMessage("customer",null, "guest" ,Locale.US );
 
 		System.out.println(orderInformationUS);
 		System.out.println(orderInformationTR);

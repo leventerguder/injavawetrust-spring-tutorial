@@ -4,6 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- bean id must be "messageSource" ,otherwise we face with an exception 
+		 org.springframework.context.NoSuchMessageException
+	-->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="locale/springMessages" />
