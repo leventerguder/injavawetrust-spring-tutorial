@@ -10,12 +10,14 @@ import _25.jdbcTemplate.model.Person;
 public class PersonRowMapper implements RowMapper<Person> {
 
 	@Override
-	public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Person person = new Person();
-		person.setId(rs.getInt("id"));
-		person.setName(rs.getString("name"));
-		person.setSurname(rs.getString("surname"));
-		person.setBirthYear(rs.getInt("birthYear"));
+	public Person mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+		
+		int id = resultSet.getInt("id");
+		String name = resultSet.getString("name");
+		String surname = resultSet.getString("surname");
+		int birthYear = resultSet.getInt("birthYear");
+		
+		Person person = new Person(id, name, surname, birthYear);		
 		return person;
 	}
 

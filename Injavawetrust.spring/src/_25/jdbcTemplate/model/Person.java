@@ -6,11 +6,6 @@ public class Person {
 	private String name;
 	private String surname;
 	private int birthYear;
-
-	public Person() {
-		super();
-	}
-
 	public Person(int id, String name, String surname, int birthYear) {
 		super();
 		this.id = id;
