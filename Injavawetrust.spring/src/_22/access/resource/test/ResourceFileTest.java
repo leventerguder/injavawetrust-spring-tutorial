@@ -13,7 +13,8 @@ public class ResourceFileTest {
 
 	public static void main(String[] args) throws IOException {
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("22.resource.xml");
+		// configuration file is not necessary. we didnt define bean.
+		ApplicationContext ctx = new ClassPathXmlApplicationContext();
 
 		Resource resource = ctx.getResource("file:/home/levent/Desktop/source.txt");
 

@@ -12,18 +12,19 @@ public class ResourceClasspathTest {
 
 	public static void main(String[] args) throws IOException {
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("22.resource.xml");
+		// configuration file is not necessary. we didnt define bean.
+		ApplicationContext ctx = new ClassPathXmlApplicationContext();
 
 		Resource resource = ctx.getResource("classpath:22.test.properties");
 		InputStream is = resource.getInputStream();
-		
+
 		Properties prop = new Properties();
 		prop.load(is);
-		
-		String name=prop.getProperty("name");
-		
+
+		String name = prop.getProperty("name");
+
 		System.out.println(name);
-		
+
 		((ClassPathXmlApplicationContext) ctx).close();
 
 	}

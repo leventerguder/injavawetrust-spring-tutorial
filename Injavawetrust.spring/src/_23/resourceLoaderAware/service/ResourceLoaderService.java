@@ -1,7 +1,6 @@
 package _23.resourceLoaderAware.service;
 
 import org.springframework.context.ResourceLoaderAware;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 public class ResourceLoaderService implements ResourceLoaderAware {
@@ -12,8 +11,8 @@ public class ResourceLoaderService implements ResourceLoaderAware {
 		this.resourceLoader = resourceLoader;
 	}
 
-	public Resource getResource(String path){
-		return resourceLoader.getResource(path);
+	public ResourceLoader getResourceLoader() {
+		return resourceLoader;
 	}
 
 }

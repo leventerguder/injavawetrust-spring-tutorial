@@ -8,8 +8,8 @@ import _21.application.event.model.MessageEvent;
 public class MessageEventTest {
 	public static void main(String[] args) {
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("21.aplicationEvent.xml");
-
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("21.applicationEvent.xml");
+		
 		ctx.publishEvent(new MessageEvent(new Object(), "Message 1!"));
 		ctx.publishEvent(new MessageEvent(new Object(), "Message 2!"));
 		ctx.publishEvent(new MessageEvent(new Object(), "Message 3!"));
