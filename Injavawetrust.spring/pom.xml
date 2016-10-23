@@ -19,9 +19,11 @@
 	</build>
 
 	<properties>
-	    <!--last update : 22.10.2016  -->
+		<!--last update : 22.10.2016 -->
 		<spring.version>4.3.3.RELEASE</spring.version>
 		<javax.inject.version>1</javax.inject.version>
+		<oracle.version>11.2.0.3</oracle.version>
+		<mysql.version>6.0.4</mysql.version>
 	</properties>
 
 	<repositories>
@@ -39,12 +41,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>${javax.inject.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
@@ -55,6 +51,27 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${javax.inject.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${oracle.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
@@ -68,11 +85,7 @@
 			<version>2.6.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3</version>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.hibernate</groupId>

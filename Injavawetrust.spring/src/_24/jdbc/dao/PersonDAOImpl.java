@@ -13,13 +13,16 @@ import _24.jdbc.model.Person;
 
 public class PersonDAOImpl implements PersonDAO {
 
-	private DataSource dataSource;
-
+	//Watch out for mysql;
+	//http://stackoverflow.com/questions/8147447/use-mysql-lower-case-table-names-to-1
 	private final static String INSERT_PERSON = "insert into person (id, name, surname,birthYear) values (?, ?, ?,?)";
 	private final static String SELECT_BYID = "select * from person where id=?";
 	private final static String ALL_SELECT = "select * from person";
 	private final static String UPDATE_PERSON = "update person set name=? , surname=? , birthYear=? where id=?";
-	private final static String DELETE_PERSON = "delete person where id=?";
+	private final static String DELETE_PERSON = "delete from person where id=?";
+	private final static String DELETE_PERSON_ALL = "delete from person";
+
+	private DataSource dataSource;
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
@@ -27,11 +30,10 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public void insert(Person person) {
-		Connection connection = getConnection();
 
-		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = connection.prepareStatement(INSERT_PERSON);
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PERSON);
 			preparedStatement.setInt(1, person.getId());
 			preparedStatement.setString(2, person.getName());
 			preparedStatement.setString(3, person.getSurname());
@@ -48,11 +50,10 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public Person getPersonById(int id) {
-		Connection connection = getConnection();
-		PreparedStatement preparedStatement = null;
 		Person person = null;
 		try {
-			preparedStatement = connection.prepareStatement(SELECT_BYID);
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BYID);
 			preparedStatement.setInt(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
@@ -60,6 +61,7 @@ public class PersonDAOImpl implements PersonDAO {
 				String surname = resultSet.getString("surname");
 				int birthYear = resultSet.getInt("birthYear");
 				person = new Person(id, name, surname, birthYear);
+
 				// logging
 				System.out.println("Person is found..." + person);
 			}
@@ -75,12 +77,11 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public List<Person> getAllPersons() {
-		Connection connection = getConnection();
-		PreparedStatement preparedStatement = null;
+
 		List<Person> personList = new ArrayList<Person>();
 		try {
-			preparedStatement = connection.prepareStatement(ALL_SELECT);
-
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(ALL_SELECT);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -109,16 +110,18 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public void update(Person person) {
-		Connection connection = getConnection();
-		PreparedStatement preparedStatement;
+
 		try {
-			preparedStatement = connection.prepareStatement(UPDATE_PERSON);
+
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PERSON);
 			preparedStatement.setString(1, person.getName());
 			preparedStatement.setString(2, person.getSurname());
 			preparedStatement.setInt(3, person.getBirthYear());
 			preparedStatement.setInt(4, person.getId());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
+
 			// logging
 			System.out.println("Person is updated..." + person);
 		} catch (SQLException e) {
@@ -129,14 +132,15 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public void delete(int id) {
-		Connection connection = getConnection();
-		PreparedStatement preparedStatement;
+
 		try {
-			preparedStatement = connection.prepareStatement(DELETE_PERSON);
+
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PERSON);
 			preparedStatement.setInt(1, id);
 			preparedStatement.executeUpdate();
-			preparedStatement.executeUpdate();
 			preparedStatement.close();
+
 			// logging
 			System.out.println("Person is deleted... Id : " + id);
 		} catch (SQLException e) {
@@ -144,13 +148,20 @@ public class PersonDAOImpl implements PersonDAO {
 		}
 	}
 
-	private Connection getConnection() {
+	@Override
+	public void deleteAllPersons() {
 		try {
-			return dataSource.getConnection();
+
+			Connection connection = dataSource.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PERSON_ALL);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+
+			// logging
+			System.out.println("All Persons are deleted...");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
 
 }
