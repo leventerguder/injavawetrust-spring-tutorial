@@ -78,7 +78,7 @@ public class PersonDAOImpl implements PersonDAO {
 	public void deleteAllPersons() {
 		jdbcTemplate.update(DELETE_PERSON_ALL);
 		//
-		System.out.println("All persons ");
+		System.out.println("All persons are deleted.");
 	}
 
 }
