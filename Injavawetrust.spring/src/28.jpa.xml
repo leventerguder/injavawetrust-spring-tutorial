@@ -50,15 +50,11 @@
 
 	<!-- @Autowired annotation kullaniyoruz. -->
 	<context:component-scan
-		base-package="_28.jpa.dao,
-					  _28.jpa.service" />
+		base-package="_28.jpa.dao" />
 
 	<!-- 
-	<bean id="personDAOServiceId" class="_28.jpa.service.PersonDAOService">
-		<constructor-arg ref="personDAOImplId" />
-	</bean>
 
-	<bean id="personDAOImplId" class="_28.jpa.dao.PersonDAOImpl">
+	<bean id="personDAOImpl" class="_28.jpa.dao.PersonDAOImpl">
 		<property name="entityManagerFactory" ref="entityManagerFactoryId" />
 	</bean>
 	 -->

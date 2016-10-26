@@ -6,43 +6,46 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import _28.jpa.dao.PersonDAO;
+import _28.jpa.dao.PersonDAOImpl;
 import _28.jpa.model.Person;
-import _28.jpa.service.PersonDAOService;
 
 
 public class JPATest {
 	public static void main(String[] args) throws SQLException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("28.jpa.xml");
 
-		PersonDAOService pService = ctx.getBean(PersonDAOService.class);
+
+		PersonDAO pService = ctx.getBean(PersonDAOImpl.class);
 
 		// create person object
-		Person person = pService.createPerson("Lvnt", "Erguder", 1989);
+		Person person1 = new Person("oldName", "oldSurname", 1989);
 
 		// insert
-		pService.insert(person);
+		pService.insert(person1);
 
 		// find
 		Person foundPerson = pService.getPersonById(1);
 		System.out.println("Found ... " + foundPerson);
 
 		// update
-		person.setName("Levent");
-		pService.update(person);
+		person1.setName("Levent");
+		person1.setSurname("Erguder");
+		pService.update(person1);
 		System.out.println("After Update...");
 
 		// find
 		foundPerson = pService.getPersonById(1);
 		System.out.println("Found ... " + foundPerson);
 
-		// delete
-		pService.delete(1);
-
-		Person person2 = pService.createPerson("James", "Gosling", 1955);
-		Person person3 = pService.createPerson("Joshua", "Bloch", 1961);
+		Person person2 = new Person("James", "Gosling", 1955);
+		Person person3 = new Person("Joshua", "Bloch", 1961);
 
 		pService.insert(person2);
 		pService.insert(person3);
+
+		// delete
+		pService.delete(1);
 
 		// list
 		List<Person> personList = pService.getAllPersons();
@@ -52,6 +55,5 @@ public class JPATest {
 		}
 
 		((ClassPathXmlApplicationContext) ctx).close();
-
 	}
 }

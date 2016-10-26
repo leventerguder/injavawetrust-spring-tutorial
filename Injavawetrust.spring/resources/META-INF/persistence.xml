@@ -9,9 +9,14 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<!-- default persistence provider -->
-
+		
+		<!-- 
 		<class>_27.jpa.model.Person</class>
-
+		 -->
+		
+		<class>_28.jpa.model.Person</class>
+			
+		
 		<properties>
 					
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />

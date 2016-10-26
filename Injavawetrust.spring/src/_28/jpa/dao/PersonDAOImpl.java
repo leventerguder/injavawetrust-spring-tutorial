@@ -42,7 +42,7 @@ public class PersonDAOImpl implements PersonDAO {
 	@Override
 	public void update(Person person) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(person);
+		entityManager.merge(person);
 		entityManager.getTransaction().commit();
 
 	}
