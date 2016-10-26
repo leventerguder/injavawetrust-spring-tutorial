@@ -9,13 +9,8 @@
 		<property name="persistenceUnitName" value="SpringJPA_PU"></property>
 	</bean>
 
-	<bean id="personDAOServiceId" class="_27.jpa.service.PersonDAOService">
-		<constructor-arg ref="personDAOImplId" />
-	</bean>
-
 	<bean id="personDAOImplId" class="_27.jpa.dao.PersonDAOImpl">
 		<property name="entityManagerFactory" ref="entityManagerFactoryId" />
 	</bean>
-
 
 </beans>

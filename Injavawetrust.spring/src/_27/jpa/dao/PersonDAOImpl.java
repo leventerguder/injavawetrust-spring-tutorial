@@ -30,14 +30,14 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public List<Person> getAllPersons() {
-		TypedQuery<Person> query = entityManager.createQuery("Select e from Person e",Person.class);
+		TypedQuery<Person> query = entityManager.createQuery("Select e from Person e", Person.class);
 		return query.getResultList();
 	}
 
 	@Override
 	public void update(Person person) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(person);
+		entityManager.merge(person);
 		entityManager.getTransaction().commit();
 
 	}
@@ -46,7 +46,9 @@ public class PersonDAOImpl implements PersonDAO {
 	public void delete(int id) {
 		Person person = getPersonById(id);
 		if (person != null) {
+			entityManager.getTransaction().begin();
 			entityManager.remove(person);
+			entityManager.getTransaction().commit();
 		}
 
 	}

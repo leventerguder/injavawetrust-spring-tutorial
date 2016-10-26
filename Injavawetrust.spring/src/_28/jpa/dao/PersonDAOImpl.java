@@ -51,7 +51,9 @@ public class PersonDAOImpl implements PersonDAO {
 	public void delete(int id) {
 		Person person = getPersonById(id);
 		if (person != null) {
+			entityManager.getTransaction().begin();
 			entityManager.remove(person);
+			entityManager.getTransaction().commit();
 		}
 
 	}

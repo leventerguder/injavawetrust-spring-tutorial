@@ -24,6 +24,7 @@
 		<javax.inject.version>1</javax.inject.version>
 		<oracle.version>11.2.0.3</oracle.version>
 		<mysql.version>6.0.4</mysql.version>
+		<eclipselink.version>2.6.4</eclipselink.version>
 	</properties>
 
 	<repositories>
@@ -71,21 +72,11 @@
 			<version>${mysql.version}</version>
 		</dependency>
 
-
-
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>javax.persistence</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
-			<version>2.6.1</version>
+			<version>${eclipselink.version}</version>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
