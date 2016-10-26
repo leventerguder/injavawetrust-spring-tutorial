@@ -14,39 +14,39 @@ public class JPATest {
 	public static void main(String[] args) throws SQLException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("27.jpa.xml");
 
-		PersonDAO pService = ctx.getBean(PersonDAOImpl.class);
+		PersonDAO personDAO = ctx.getBean(PersonDAOImpl.class);
 
 		// create person object
 		Person person1 = new Person("oldName", "oldSurname", 1989);
 
 		// insert
-		pService.insert(person1);
+		personDAO.insert(person1);
 
 		// find
-		Person foundPerson = pService.getPersonById(1);
+		Person foundPerson = personDAO.getPersonById(1);
 		System.out.println("Found ... " + foundPerson);
 
 		// update
 		person1.setName("Levent");
 		person1.setSurname("Erguder");
-		pService.update(person1);
+		personDAO.update(person1);
 		System.out.println("After Update...");
 
 		// find
-		foundPerson = pService.getPersonById(1);
+		foundPerson = personDAO.getPersonById(1);
 		System.out.println("Found ... " + foundPerson);
 
 		Person person2 = new Person("James", "Gosling", 1955);
 		Person person3 = new Person("Joshua", "Bloch", 1961);
 
-		pService.insert(person2);
-		pService.insert(person3);
+		personDAO.insert(person2);
+		personDAO.insert(person3);
 
 		// delete
-		pService.delete(1);
+		personDAO.delete(1);
 
 		// list
-		List<Person> personList = pService.getAllPersons();
+		List<Person> personList = personDAO.getAllPersons();
 		System.out.println("Listing...");
 		for (Person p : personList) {
 			System.out.println(p);

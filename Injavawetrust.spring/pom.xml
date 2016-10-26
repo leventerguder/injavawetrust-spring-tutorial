@@ -19,12 +19,13 @@
 	</build>
 
 	<properties>
-		<!--last update : 22.10.2016 -->
+		<!--last update : 26.10.2016 -->
 		<spring.version>4.3.3.RELEASE</spring.version>
 		<javax.inject.version>1</javax.inject.version>
 		<oracle.version>11.2.0.3</oracle.version>
 		<mysql.version>6.0.4</mysql.version>
 		<eclipselink.version>2.6.4</eclipselink.version>
+		<hibernate.version>5.2.3.Final</hibernate.version>
 	</properties>
 
 	<repositories>
@@ -81,14 +82,9 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.0.6.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
-			<version>1.1</version>
-		</dependency>
 
 	</dependencies>
 </project>

@@ -2,10 +2,13 @@ package _29.hibernate.dao;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.CommonQueryContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -43,13 +46,22 @@ public class PersonDAOImpl implements PersonDAO {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Person> getAllPersons() {
-		// TypedQuery<Person> query =
 		Session session = getSession();
-		Query query = session.createQuery("Select e from Person e");
-		return query.list();
+		TypedQuery<Person> query = session.createQuery("Select e from Person e",Person.class);
+		
+		//org.hibernate.Query is deprecated
+		//Query query = session.createQuery("Select e from Person e");
+		//return query.list()
+		return query.getResultList();
+		/*
+		 * @Deprecated
+			@SuppressWarnings("UnusedDeclaration")
+			public interface Query<R> extends TypedQuery<R>, CommonQueryContract {
+			..
+			}
+		 */
 
 	}
 
