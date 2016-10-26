@@ -39,9 +39,8 @@ public class PersonDAOImpl implements PersonDAO {
 
 	@Override
 	public void insert(Person person) {
+		
 		TransactionStatus status = getTransactionStatus();
-		//
-
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", person.getId());
 		params.put("name", person.getName());
@@ -53,10 +52,10 @@ public class PersonDAOImpl implements PersonDAO {
 			// logging
 			System.out.println("Person is inserted... " + person);
 			//
+			
 			insertAddress(person.getAddress());
-			//
 			updatePersonAddress(person.getId(), person.getAddress().getAddressId());
-
+			
 			// commit
 			transactionManager.commit(status);
 
