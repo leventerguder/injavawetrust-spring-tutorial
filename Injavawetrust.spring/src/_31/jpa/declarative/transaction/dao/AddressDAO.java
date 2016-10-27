@@ -5,5 +5,5 @@ import _31.jpa.declarative.transaction.model.Address;
 public interface AddressDAO {
 
 	public void insertAddress(Address address);
-	
+
 }

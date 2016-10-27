@@ -15,18 +15,24 @@
 	<context:component-scan base-package="_31.jpa.declarative.transaction" />
 
 
-	<bean id="dataSource"
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>jdbc/jdbc.properties</value>
+		</property>
+	</bean>
+
+	<bean id="dataSourceId"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1520:xe" />
-		<property name="username" value="Levent" />
-		<property name="password" value="123456" />
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 	</bean>
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSourceId" />
 		<property name="jpaVendorAdapter">
 			<bean
 				class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter" />
@@ -49,9 +55,11 @@
 
 
 	<!-- Transactions -->
+	
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+	
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 
