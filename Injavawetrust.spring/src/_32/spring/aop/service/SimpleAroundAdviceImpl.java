@@ -7,9 +7,9 @@ public class SimpleAroundAdviceImpl implements MethodInterceptor {
 
 	@Override
 	public Object invoke(MethodInvocation invocation) throws Throwable {
-		System.out.println("First ");
+		System.out.println("Before !");
 		Object retVal = invocation.proceed();
-		System.out.println("Third");
+		System.out.println("After ! ");
 		return retVal;
 	}
 

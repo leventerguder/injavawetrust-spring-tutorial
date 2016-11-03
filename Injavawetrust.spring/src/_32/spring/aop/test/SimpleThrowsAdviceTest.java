@@ -1,7 +1,7 @@
 package _32.spring.aop.test;
 
 import org.springframework.aop.framework.ProxyFactory;
-import _32.spring.aop.service.SimpleThrowsAdviseImpl;
+import _32.spring.aop.service.SimpleThrowsAdviceImpl;
 import _32.spring.aop.service.Validator;
 
 public class SimpleThrowsAdviceTest {
@@ -10,14 +10,23 @@ public class SimpleThrowsAdviceTest {
 
 		ProxyFactory pf = new ProxyFactory();
 		pf.setTarget(errorBean);
-		pf.addAdvice(new SimpleThrowsAdviseImpl());
+		pf.addAdvice(new SimpleThrowsAdviceImpl());
 		Validator proxy = (Validator) pf.getProxy();
 
 		try {
-			proxy.validate(10);
-		} catch (Exception e) {
+			proxy.validateAge(-10);
+		} catch (ArithmeticException e) {
 
 		}
+
+		try {
+			proxy.parseAge("Exception");
+		} catch (NumberFormatException e) {
+
+		}
+	
+		proxy.throwRuntimeException();
+
 	}
 
 }
