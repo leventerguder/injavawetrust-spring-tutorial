@@ -8,7 +8,7 @@ public class SimpleAroundAdviceTest {
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("33.spring.xml.aop.xml");
 
-		LoggerWriter object = context.getBean("proxyAfterReturning", LoggerWriter.class);
+		LoggerWriter object = context.getBean("proxyAround", LoggerWriter.class);
 		object.log();
 
 		context.close();

@@ -5,6 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="logger" class="_33.spring.xml.aop.service.LoggerWriter" />
+	<bean id="validator" class="_33.spring.xml.aop.service.Validator" />
 	<bean id="simpleBeforeAdviceImpl" class="_33.spring.xml.aop.service.SimpleBeforeAdviceImpl" />
 	<bean id="simpleAfterReturningAdviceImpl" class="_33.spring.xml.aop.service.SimpleAfterReturningAdviceImpl" />
 	<bean id="simpleAroundAdviceImpl" class="_33.spring.xml.aop.service.SimpleAroundAdviceImpl" />
@@ -39,7 +40,7 @@
 
 
 	<bean id="proxyThrows" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="logger"></property>
+		<property name="target" ref="validator"></property>
 		<property name="interceptorNames">
 			<list>
 				<value>simpleThrowsAdviceImpl</value>

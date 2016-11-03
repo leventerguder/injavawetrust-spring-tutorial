@@ -1,31 +1,30 @@
 package _33.spring.xml.aop.test;
 
-import org.springframework.aop.framework.ProxyFactory;
-import _32.spring.aop.service.SimpleThrowsAdviceImpl;
-import _32.spring.aop.service.Validator;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import _33.spring.xml.aop.service.Validator;
 
 public class SimpleThrowsAdviceTest {
 	public static void main(String[] args) throws Exception {
-		Validator errorBean = new Validator();
 
-		ProxyFactory pf = new ProxyFactory();
-		pf.setTarget(errorBean);
-		pf.addAdvice(new SimpleThrowsAdviceImpl());
-		Validator proxy = (Validator) pf.getProxy();
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("33.spring.xml.aop.xml");
+
+		Validator validator = context.getBean("proxyThrows", Validator.class);
 
 		try {
-			proxy.validateAge(-10);
+			validator.validateAge(-10);
 		} catch (ArithmeticException e) {
 
 		}
 
 		try {
-			proxy.parseAge("Exception");
+			validator.parseAge("Exception");
 		} catch (NumberFormatException e) {
 
 		}
-	
-		proxy.throwRuntimeException();
+
+		validator.throwRuntimeException();
+		
+		context.close();
 
 	}
 

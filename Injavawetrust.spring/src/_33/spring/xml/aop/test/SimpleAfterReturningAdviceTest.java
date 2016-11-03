@@ -13,5 +13,4 @@ public class SimpleAfterReturningAdviceTest {
 
 		context.close();
 	}
-
 }
