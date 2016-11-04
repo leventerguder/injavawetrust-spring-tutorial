@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd ">
 
-	<bean id="logger" class="_33.spring.xml.aop.service.LoggerWriter" />
-	<bean id="validator" class="_33.spring.xml.aop.service.Validator" />
-	<bean id="simpleBeforeAdviceImpl" class="_33.spring.xml.aop.service.SimpleBeforeAdviceImpl" />
-	<bean id="simpleAfterReturningAdviceImpl" class="_33.spring.xml.aop.service.SimpleAfterReturningAdviceImpl" />
-	<bean id="simpleAroundAdviceImpl" class="_33.spring.xml.aop.service.SimpleAroundAdviceImpl" />
-	<bean id="simpleThrowsAdviceImpl" class="_33.spring.xml.aop.service.SimpleThrowsAdviceImpl" />
+	<bean id="logger" class="_33.spring.aop.service.LoggerWriter" />
+	<bean id="validator" class="_33.spring.aop.service.Validator" />
+	<bean id="simpleBeforeAdviceImpl" class="_33.spring.aop.service.SimpleBeforeAdviceImpl" />
+	<bean id="simpleAfterReturningAdviceImpl" class="_33.spring.aop.service.SimpleAfterReturningAdviceImpl" />
+	<bean id="simpleAroundAdviceImpl" class="_33.spring.aop.service.SimpleAroundAdviceImpl" />
+	<bean id="simpleThrowsAdviceImpl" class="_33.spring.aop.service.SimpleThrowsAdviceImpl" />
 
 	<bean id="proxyBefore" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="logger"></property>

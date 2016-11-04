@@ -1,12 +1,13 @@
-package _33.spring.xml.aop.test;
+package _33.spring.aop.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import _33.spring.xml.aop.service.LoggerWriter;
+
+import _33.spring.aop.service.LoggerWriter;
 
 public class SimpleAroundAdviceTest {
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("33.spring.xml.aop.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("33.spring.aop.xml");
 
 		LoggerWriter object = context.getBean("proxyAround", LoggerWriter.class);
 		object.log();

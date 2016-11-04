@@ -1,4 +1,4 @@
-package _33.spring.xml.aop.service;
+package _33.spring.aop.service;
 
 import java.lang.reflect.Method;
 import org.springframework.aop.AfterReturningAdvice;

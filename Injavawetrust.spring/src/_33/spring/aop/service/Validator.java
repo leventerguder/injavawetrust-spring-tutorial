@@ -1,4 +1,4 @@
-package _33.spring.xml.aop.service;
+package _33.spring.aop.service;
 
 public class Validator {
 	public void validateAge(int age) throws Exception {
