@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:aop="http://www.springframework.org/schema/aop"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
     http://www.springframework.org/schema/aop 
-    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+    http://www.springframework.org/schema/aop/spring-aop.xsd 
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd 
+    ">
 
-    <aop:aspectj-autoproxy/>
+	<!-- do not forget adding xmlns context! -->
+	<context:annotation-config/>
+	
+	<!-- 
+	Use @EnableAspectJAutoProxy  with context:annotation-config or 
+	<aop:aspectj-autoproxy/>
+	 -->
+	
 
-	<bean id="employeeService" class="_36.aspectj.annotation.service.EmployeeService"/>
+	<bean id="employeeService" class="_36.aspectj.annotation.service.EmployeeService" />
 
-	<bean id="auditAspect" class="_36.aspectj.annotation.service.AuditServiceAspect"/>
-      
+	<bean id="auditServiceAspect" class="_36.aspectj.annotation.service.AuditServiceAspect" />
+
 </beans>

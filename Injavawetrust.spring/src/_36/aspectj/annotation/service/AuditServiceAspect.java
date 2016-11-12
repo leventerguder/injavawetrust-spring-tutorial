@@ -8,8 +8,10 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Aspect
+@EnableAspectJAutoProxy
 public class AuditServiceAspect {
 
 	@Before("execution(* _36.aspectj.annotation.service.EmployeeService.saveEmployee(..))")
@@ -25,7 +27,7 @@ public class AuditServiceAspect {
 	@AfterReturning(pointcut = "execution(* _36.aspectj.annotation.service.EmployeeService.getEmployeeId(..))", returning = "resultValue")
 	public void logAfterReturning(JoinPoint joinPoint, String resultValue) {
 		System.out.println("logAfterReturning is invoked...");
-		System.out.println("Called by : " + joinPoint.getSignature().getName());
+		System.out.println("Invoked by : " + joinPoint.getSignature().getName());
 		System.out.println("Returned value : " + resultValue);
 	}
 
@@ -42,7 +44,7 @@ public class AuditServiceAspect {
 	public void logAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
 		System.out.println("logAround is invoked...");
-		System.out.println("Called by : " + joinPoint.getSignature().getName());
+		System.out.println("Invoked by : " + joinPoint.getSignature().getName());
 		System.out.println("Around before is running!");
 
 		joinPoint.proceed();
