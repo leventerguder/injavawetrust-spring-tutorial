@@ -9,13 +9,8 @@
 
     <aop:aspectj-autoproxy/>
 
-   <!-- Definition for student bean -->
-   <bean id="student" class="_36.aspectj.annotation.service.Student">
-      <property name="name"  value="Zara" />
-      <property name="age"  value="11"/>      
-   </bean>
+	<bean id="employeeService" class="_36.aspectj.annotation.service.EmployeeService"/>
 
-   <!-- Definition for logging aspect -->
-   <bean id="logging" class="_36.aspectj.annotation.service.LoggingAspect"/> 
+	<bean id="auditAspect" class="_36.aspectj.annotation.service.AuditServiceAspect"/>
       
 </beans>
