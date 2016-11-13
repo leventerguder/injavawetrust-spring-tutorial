@@ -17,13 +17,13 @@ public class CustomerServiceImpl implements CustomerService{
 	@Autowired
 	private AddressDAO addressDao;
 
-	//@Override
+	@Override
 	public void insertCustomerData(Customer customer) {
 		customerDAO.insertCustomer(customer);
 		addressDao.insertAddress(customer.getAddress());
 	}
 
-	//@Override
+	@Override
 	public List<Customer> listCustomers() {
 		return customerDAO.findAllCustomers();
 	}
