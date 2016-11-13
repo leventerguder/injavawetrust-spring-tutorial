@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import _31.jpa.declarative.transaction.dao.AddressDAO;
 import _31.jpa.declarative.transaction.dao.AddressDAOImpl;
+import _31.jpa.declarative.transaction.dao.CustomerDAO;
 import _31.jpa.declarative.transaction.dao.CustomerDAOImpl;
 import _31.jpa.declarative.transaction.model.Customer;
 
@@ -14,10 +16,10 @@ import _31.jpa.declarative.transaction.model.Customer;
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
-	private CustomerDAOImpl productDao;
+	private CustomerDAO productDao;
 
 	@Autowired
-	private AddressDAOImpl addressDao;
+	private AddressDAO addressDao;
 
 	@Transactional
 	@Override
