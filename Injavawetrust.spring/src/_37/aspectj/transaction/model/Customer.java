@@ -11,9 +11,20 @@ public class Customer {
 	private int id;
 	private String name;
 	private String surname;
-
+	
 	@OneToOne
 	private Address address;
+
+	public Customer() {
+		super();
+	}
+
+	public Customer(int id, String name, String surname) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+	}
 
 	public int getId() {
 		return id;
@@ -45,17 +56,6 @@ public class Customer {
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-
-	public Customer() {
-		super();
-	}
-
-	public Customer(int id, String name, String surname) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
 	}
 
 	@Override

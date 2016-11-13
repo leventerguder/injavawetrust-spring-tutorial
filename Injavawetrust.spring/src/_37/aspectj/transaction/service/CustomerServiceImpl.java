@@ -12,20 +12,20 @@ import _37.aspectj.transaction.model.Customer;
 public class CustomerServiceImpl implements CustomerService{
 
 	@Autowired
-	private CustomerDAO productDao;
+	private CustomerDAO customerDAO;
 
 	@Autowired
 	private AddressDAO addressDao;
 
 	//@Override
 	public void insertCustomerData(Customer customer) {
-		productDao.insertCustomer(customer);
+		customerDAO.insertCustomer(customer);
 		addressDao.insertAddress(customer.getAddress());
 	}
 
 	//@Override
 	public List<Customer> listCustomers() {
-		return productDao.findAllCustomers();
+		return customerDAO.findAllCustomers();
 	}
 
 }

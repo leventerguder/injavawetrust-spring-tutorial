@@ -1,4 +1,4 @@
-package _37.aspectj.transaction.main;
+package _37.aspectj.transaction.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
