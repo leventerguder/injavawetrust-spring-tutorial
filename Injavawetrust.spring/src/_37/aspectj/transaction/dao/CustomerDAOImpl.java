@@ -18,8 +18,8 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	private static final String ALL_CUSTOMERS = "Select c from Customer c";
 
-	public void insertCustomer(Customer product) {
-		entityManager.persist(product);
+	public void insertCustomer(Customer customer) {
+		entityManager.persist(customer);
 	}
 
 	public List<Customer> findAllCustomers() {

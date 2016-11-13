@@ -6,7 +6,7 @@ import _31.jpa.declarative.transaction.model.Customer;
 
 public interface CustomerService {
 	
-	public void insertCustomerData(Customer product);
+	public void insertCustomerData(Customer customer);
 
 	public List<Customer> listCustomers();
 }

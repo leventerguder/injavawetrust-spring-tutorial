@@ -18,15 +18,14 @@ public class CustomerServiceImpl implements CustomerService{
 	private AddressDAO addressDao;
 
 	//@Override
-	public void insertCustomerData(Customer product) {
-		productDao.insertCustomer(product);
-		addressDao.insertAddress(product.getAddress());
+	public void insertCustomerData(Customer customer) {
+		productDao.insertCustomer(customer);
+		addressDao.insertAddress(customer.getAddress());
 	}
 
 	//@Override
 	public List<Customer> listCustomers() {
 		return productDao.findAllCustomers();
-
 	}
 
 }
