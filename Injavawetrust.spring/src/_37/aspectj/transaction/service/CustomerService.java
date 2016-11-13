@@ -7,5 +7,6 @@ import _37.aspectj.transaction.model.Customer;
 public interface CustomerService {
 
 	public void insertCustomerData(Customer product);
+
 	public List<Customer> listCustomers();
 }
