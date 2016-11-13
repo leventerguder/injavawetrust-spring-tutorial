@@ -18,16 +18,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private static final String ALL_CUSTOMERS = "Select c from Customer c";
 
 	@Override
-	public void insertCustomer(Customer product) {		
-		entityManager.persist(product);		
+	public void insertCustomer(Customer customer) {
+		entityManager.persist(customer);
 	}
 
 	@Override
 	public List<Customer> findAllCustomers() {
-
 		TypedQuery<Customer> query = entityManager.createQuery(ALL_CUSTOMERS, Customer.class);
 		return query.getResultList();
-
 	}
 
 }

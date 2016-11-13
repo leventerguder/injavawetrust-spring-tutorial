@@ -11,10 +11,11 @@ public class SpringJPADeclarativeTransactionTest {
 
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("31.jpa.declarative.transaction.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+				"31.jpa.declarative.transaction.xml");
 
-		// get ProductService bean
-		CustomerService productService = context.getBean(CustomerServiceImpl.class);
+		// get CustomerService bean
+		CustomerService customerService = context.getBean(CustomerServiceImpl.class);
 
 		// prepare Customer and Address data.
 		Customer customer = new Customer(1, "Levent", "Erguder");
@@ -32,11 +33,11 @@ public class SpringJPADeclarativeTransactionTest {
 		Address address3 = new Address(2, "Alemdag Road", "34000", "Istanbul");
 		customer3.setAddress(address3);
 
-		productService.insertCustomerData(customer);
-		productService.insertCustomerData(customer2);
+		customerService.insertCustomerData(customer);
+		customerService.insertCustomerData(customer2);
 
 		try {
-			productService.insertCustomerData(customer3);
+			customerService.insertCustomerData(customer3);
 		} catch (Exception e) {
 			System.out.println("Rollback...");
 			System.out.println(e.getMessage());
@@ -44,7 +45,7 @@ public class SpringJPADeclarativeTransactionTest {
 
 		//
 		System.out.println("Customer List : ");
-		for (Customer customerRecord : productService.listCustomers()) {
+		for (Customer customerRecord : customerService.listCustomers()) {
 			System.out.println(customerRecord);
 		}
 
