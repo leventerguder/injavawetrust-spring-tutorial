@@ -1,16 +1,16 @@
-package _37.aspectj.transaction.test;
+package _37.aspectj.jpa.transaction.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import _37.aspectj.transaction.model.Address;
-import _37.aspectj.transaction.model.Customer;
-import _37.aspectj.transaction.service.CustomerService;
+import _37.aspectj.jpa.transaction.model.Address;
+import _37.aspectj.jpa.transaction.model.Customer;
+import _37.aspectj.jpa.transaction.service.CustomerService;
 
 public class AspectJTransactionTest {
 
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("37.aspectj.transaction.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("37.aspectj.jpa.transaction.xml");
 
 		// get CustomerService bean
 		CustomerService customerService = context.getBean(CustomerService.class);

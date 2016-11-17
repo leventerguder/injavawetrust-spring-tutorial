@@ -1,4 +1,4 @@
-package _37.aspectj.transaction.dao;
+package _37.aspectj.jpa.transaction.dao;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import _37.aspectj.transaction.model.Customer;
+import _37.aspectj.jpa.transaction.model.Customer;
 
 @Repository
 public class CustomerDAOImpl implements CustomerDAO{

@@ -15,11 +15,11 @@
 		http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd ">
 
-	<context:component-scan base-package="_37.aspectj.transaction.dao ,
-										  _37.aspectj.transaction.service " />
+	<!-- scan packages -->
 	
+	<context:component-scan base-package="_37.aspectj.jpa.transaction.dao ,
+										  _37.aspectj.jpa.transaction.service " />
 
-	<!-- JPA -->
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
@@ -44,7 +44,7 @@
 			<bean
 				class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter" />
 		</property>
-		<property name="packagesToScan" value="_37.aspectj.transaction.model" />
+		<property name="packagesToScan" value="_37.aspectj.jpa.transaction.model" />
 
 		<property name="jpaProperties">
 			<props>
@@ -74,11 +74,12 @@
 
 	<aop:config>
 		<aop:pointcut id="serviceMethods" 
-			expression="execution(* _37.aspectj.transaction.service.*.*(..))" />
+			expression="execution(* _37.aspectj.jpa.transaction.service.*.*(..))" />
 		<aop:advisor pointcut-ref="serviceMethods" advice-ref="txAdvice" />
 	</aop:config>
 	
 	<!-- TransactionManager -->
+	
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>

@@ -1,10 +1,10 @@
-package _37.aspectj.transaction.dao;
+package _37.aspectj.jpa.transaction.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
-import _37.aspectj.transaction.model.Address;
+import _37.aspectj.jpa.transaction.model.Address;
 
 @Repository
 public class AddressDAOImpl implements AddressDAO{

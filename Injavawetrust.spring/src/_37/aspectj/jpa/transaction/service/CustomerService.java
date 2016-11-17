@@ -1,8 +1,8 @@
-package _37.aspectj.transaction.service;
+package _37.aspectj.jpa.transaction.service;
 
 import java.util.List;
 
-import _37.aspectj.transaction.model.Customer;
+import _37.aspectj.jpa.transaction.model.Customer;
 
 public interface CustomerService {
 

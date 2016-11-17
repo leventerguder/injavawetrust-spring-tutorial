@@ -1,4 +1,4 @@
-package _37.aspectj.transaction.model;
+package _37.aspectj.jpa.transaction.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
