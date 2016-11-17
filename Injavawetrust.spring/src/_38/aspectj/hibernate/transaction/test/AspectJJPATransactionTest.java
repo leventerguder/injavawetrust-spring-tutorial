@@ -1,17 +1,16 @@
-package _31.jpa.declarative.transaction.test;
+package _38.aspectj.hibernate.transaction.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import _31.jpa.declarative.transaction.model.Address;
-import _31.jpa.declarative.transaction.model.Customer;
-import _31.jpa.declarative.transaction.service.CustomerService;
+import _38.aspectj.hibernate.transaction.model.Address;
+import _38.aspectj.hibernate.transaction.model.Customer;
+import _38.aspectj.hibernate.transaction.service.CustomerService;
 
-public class SpringJPADeclarativeTransactionTest {
+public class AspectJJPATransactionTest {
 
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"31.jpa.declarative.transaction.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("38.aspectj.hibernate.transaction.xml");
 
 		// get CustomerService bean
 		CustomerService customerService = context.getBean(CustomerService.class);
@@ -42,7 +41,6 @@ public class SpringJPADeclarativeTransactionTest {
 			System.out.println(e.getMessage());
 		}
 
-		//
 		System.out.println("Customer List : ");
 		for (Customer customerRecord : customerService.listCustomers()) {
 			System.out.println(customerRecord);

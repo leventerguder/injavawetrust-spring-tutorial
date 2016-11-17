@@ -6,7 +6,7 @@ import _37.aspectj.jpa.transaction.model.Address;
 import _37.aspectj.jpa.transaction.model.Customer;
 import _37.aspectj.jpa.transaction.service.CustomerService;
 
-public class AspectJTransactionTest {
+public class AspectJJPATransactionTest {
 
 	public static void main(String[] args) {
 
