@@ -13,10 +13,6 @@ public class AddressDAOImpl implements AddressDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
 	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}

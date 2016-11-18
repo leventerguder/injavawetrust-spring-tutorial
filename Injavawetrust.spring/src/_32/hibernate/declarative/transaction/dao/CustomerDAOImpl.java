@@ -18,10 +18,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
 	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}
