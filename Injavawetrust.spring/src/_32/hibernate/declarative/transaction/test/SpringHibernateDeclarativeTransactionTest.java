@@ -1,16 +1,16 @@
-package _38.aspectj.hibernate.transaction.test;
+package _32.hibernate.declarative.transaction.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import _38.aspectj.hibernate.transaction.model.Address;
-import _38.aspectj.hibernate.transaction.model.Customer;
-import _38.aspectj.hibernate.transaction.service.CustomerService;
+import _32.hibernate.declarative.transaction.model.Address;
+import _32.hibernate.declarative.transaction.model.Customer;
+import _32.hibernate.declarative.transaction.service.CustomerService;
 
-public class AspectJJPATransactionTest {
+public class SpringHibernateDeclarativeTransactionTest {
 
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("38.aspectj.hibernate.transaction.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("32.hibernate.declarative.transaction.xml");
 
 		// get CustomerService bean
 		CustomerService customerService = context.getBean(CustomerService.class);
