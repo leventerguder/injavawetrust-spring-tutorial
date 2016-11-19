@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+	
+	<bean id="transactionEngineService" class="_36.aspectj.service.TransactionEngineService" />
+	<bean id="userAuthenticatorAspectId" class="_36.aspectj.service.UserAuthenticatorAspect" />	
+	<bean id="loggingServiceAspectId" class="_36.aspectj.service.LoggingServiceAspect" />
+	
+	<aop:config>
+		<aop:aspect id="authenticatorAspect" ref="userAuthenticatorAspectId">
+
+			<!-- Before -->
+			<aop:pointcut id="pointCutBeforeId" expression="execution(* *.processTransaction(..)) and args(userData)" />
+			<aop:before method="authenticateBefore" pointcut-ref="pointCutBeforeId" />
+
+		</aop:aspect>
+		
+		<aop:aspect id="logAspect" ref="loggingServiceAspectId">	
+					
+			<!-- AfterThrowing -->
+			<aop:pointcut id="pointCutAfterThrowingId"  expression="execution(* *.processTransaction(..))" />
+			<aop:after-throwing method="logger" throwing="exception" pointcut-ref="pointCutAfterThrowingId"  />
+		
+		</aop:aspect>
+		
+	</aop:config>
+
+</beans>

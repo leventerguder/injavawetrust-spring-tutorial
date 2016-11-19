@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd 
 	http://www.springframework.org/schema/aop 
 	http://www.springframework.org/schema/aop/spring-aop.xsd ">
 
-	
-	<bean id="transactionEngineService" class="_35.aspectj.service.TransactionEngineService" />
-	<bean id="userAuthenticatorAspectId" class="_35.aspectj.service.UserAuthenticatorAspect" />	
-	<bean id="loggingServiceAspectId" class="_35.aspectj.service.LoggingServiceAspect" />
-	
+
+	<bean id="employeeService" class="_35.aspectj.service.EmployeeService" />
+	<bean id="auditServiceAspectId" class="_35.aspectj.service.AuditServiceAspect" />
+
 	<aop:config>
-		<aop:aspect id="authenticatorAspect" ref="userAuthenticatorAspectId">
+		<aop:aspect id="myaspect" ref="auditServiceAspectId">
 
 			<!-- Before -->
-			<aop:pointcut id="pointCutBeforeId" expression="execution(* *.processTransaction(..)) and args(userData)" />
-			<aop:before method="authenticateBefore" pointcut-ref="pointCutBeforeId" />
+			<!--It is valid too! --> 
+			<!-- 
+			<aop:pointcut id="pointCutBeforeId" expression="execution(* _35.aspectj.service.EmployeeService.saveEmployee(..))" />
+			-->
+			
+			<aop:pointcut id="pointCutBeforeId" expression="execution(* *.saveEmployee(..))" />
+			<aop:before method="logBefore" pointcut-ref="pointCutBeforeId" />
 
-		</aop:aspect>
-		
-		<aop:aspect id="logAspect" ref="loggingServiceAspectId">	
-					
+			<!-- After -->
+			<aop:pointcut id="pointCutAfterId" expression="execution(* *.updateEmployee(..))" />
+			<aop:after method="logAfter" pointcut-ref="pointCutAfterId" />
+			
+			<!-- AfterReturning -->
+			<aop:pointcut id="pointCutAfterReturningId" expression="execution(* *.getEmployeeId(..))" />
+			<aop:after-returning method="logAfterReturning" returning="resultValue" pointcut-ref="pointCutAfterReturningId" />
+			
 			<!-- AfterThrowing -->
-			<aop:pointcut id="pointCutAfterThrowingId"  expression="execution(* *.processTransaction(..))" />
-			<aop:after-throwing method="logger" throwing="exception" pointcut-ref="pointCutAfterThrowingId"  />
-		
+			<aop:pointcut id="pointCutAfterThrowingId" expression="execution(* *.deleteEmployee(..))" />
+			<aop:after-throwing method="logAfterThrowing" throwing="thrownException" pointcut-ref="pointCutAfterThrowingId"  />
+			
+			<!-- Around -->
+   			<aop:pointcut id="pointCutAround" expression="execution(* *.getAllEmployees(..))" />
+			<aop:around method="logAround" pointcut-ref="pointCutAround"  />
+			
 		</aop:aspect>
-		
 	</aop:config>
 
 </beans>

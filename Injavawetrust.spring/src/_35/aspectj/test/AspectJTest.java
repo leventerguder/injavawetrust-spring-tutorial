@@ -1,27 +1,46 @@
 package _35.aspectj.test;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import _35.aspectj.model.UserData;
-import _35.aspectj.service.TransactionEngineService;
+import _35.aspectj.service.EmployeeService;
 
 public class AspectJTest {
 
 	public static void main(String[] args) {
-		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("35.aspectj.xml");
 
-		TransactionEngineService transactionEngineService = context.getBean("transactionEngineService",
-				TransactionEngineService.class);
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("35.aspectj.xml");
 
-		UserData userData = new UserData();
+		EmployeeService employeeService = ctx.getBean("employeeService", EmployeeService.class);
 
+		// aop:before
+		employeeService.saveEmployee();
+
+		System.out.println();
+
+		// aop:after
+		employeeService.updateEmployee();
+
+		System.out.println();
+
+		// aop:after-returning
+		employeeService.getEmployeeId();
+
+		System.out.println();
+
+		// aop:after-throwing
 		try {
-			transactionEngineService.processTransaction(userData);
+			employeeService.deleteEmployee();
 		} catch (Exception e) {
-			System.out.println("AspectJTest#main");
-		}
 
-		context.close();
+		}
+		
+		System.out.println();
+		
+		//aop:around		
+		employeeService.getAllEmployees();
+		
+		
+		((ClassPathXmlApplicationContext) ctx).close();
 	}
 }
