@@ -10,7 +10,7 @@ public class SimpleThrowsAdviceImpl implements ThrowsAdvice {
 		System.out.println("***");
 		System.out.println("Generic Exception Capture");
 		System.out.println("Caught: " + ex.getClass().getName());
-		System.out.println("***\n");
+		System.out.println("***");
 	}
 
 
@@ -20,7 +20,7 @@ public class SimpleThrowsAdviceImpl implements ThrowsAdvice {
 		System.out.println("ArithmeticException Capture");
 		System.out.println("Caught: " + ex.getClass().getName());
 		System.out.println("Method: " + method.getName());
-		System.out.println("***\n");
+		System.out.println("***");
 	}
 	
 	public void afterThrowing(Method method, Object[] args, Object target, NumberFormatException ex)
@@ -29,6 +29,6 @@ public class SimpleThrowsAdviceImpl implements ThrowsAdvice {
 		System.out.println("NumberFormatException Capture");
 		System.out.println("Caught: " + ex.getClass().getName());
 		System.out.println("Method: " + method.getName());
-		System.out.println("***\n");
+		System.out.println("***");
 	}
 }

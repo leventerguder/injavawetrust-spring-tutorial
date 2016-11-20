@@ -12,22 +12,25 @@ public class SimpleThrowsAdviceTest {
 		ProxyFactory pf = new ProxyFactory();
 		pf.setTarget(errorBean);
 		pf.addAdvice(new SimpleThrowsAdviceImpl());
-		Validator proxy = (Validator) pf.getProxy();
+		Validator validator = (Validator) pf.getProxy();
 
 		try {
-			proxy.validateAge(-10);
+			validator.validateAge(-10);
 		} catch (ArithmeticException e) {
-
+			System.out.println("ArithmeticException#catch\n");
 		}
 
 		try {
-			proxy.parseAge("Exception");
+			validator.parseAge("Exception");
 		} catch (NumberFormatException e) {
-
+			System.out.println("NumberFormatException#catch\n");
 		}
-	
-		proxy.throwRuntimeException();
 
+		try {
+			validator.throwRuntimeException();
+		} catch (RuntimeException e) {
+			System.out.println("RuntimeException#catch\n");
+		}
 	}
 
 }
