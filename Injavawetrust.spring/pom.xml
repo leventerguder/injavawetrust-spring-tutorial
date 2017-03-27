@@ -19,8 +19,8 @@
 	</build>
 
 	<properties>
-		<!--last update : 05.11.2016 -->
-		<spring.version>4.3.3.RELEASE</spring.version>
+		<!--last update : 27.03.2017 -->
+		<spring.version>4.3.7.RELEASE</spring.version>
 		<javax.inject.version>1</javax.inject.version>
 		<oracle.version>11.2.0.3</oracle.version>
 		<mysql.version>6.0.4</mysql.version>
