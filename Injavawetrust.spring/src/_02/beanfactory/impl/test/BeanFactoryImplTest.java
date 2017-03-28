@@ -12,8 +12,7 @@ public class BeanFactoryImplTest {
 		
 		DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
 		XmlBeanDefinitionReader rdr = new XmlBeanDefinitionReader(factory);
-		rdr.loadBeanDefinitions(new ClassPathResource("02.appcontext.xml"));
-		
+		rdr.loadBeanDefinitions(new ClassPathResource("02.appcontext.xml"));		
 		
 		Car car = (Car) factory.getBean("carId");
 		System.out.println(car.getBrand());
