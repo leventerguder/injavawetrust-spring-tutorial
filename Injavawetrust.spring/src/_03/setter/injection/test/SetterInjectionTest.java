@@ -1,7 +1,6 @@
 package _03.setter.injection.test;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import _03.setter.injection.model.Computer;
 import _03.setter.injection.model.Employee;
@@ -10,7 +9,11 @@ public class SetterInjectionTest {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("03.appcontext.setter.injection.xml");
+		// Instead of DefaultListableBeanFactory, an instance of
+		// GenericXmlApplicationContext is instantiated.
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		ctx.load("classpath:03.appcontext.setter.injection.xml");
+		ctx.refresh();
 
 		Employee employee = ctx.getBean("empId", Employee.class);
 		Employee employee2 = ctx.getBean("empId2", Employee.class);
@@ -20,7 +23,7 @@ public class SetterInjectionTest {
 		Computer computer = ctx.getBean("computerId", Computer.class);
 		System.out.println(computer);
 
-		((ClassPathXmlApplicationContext) ctx).close();
+		ctx.close();
 
 	}
 }
