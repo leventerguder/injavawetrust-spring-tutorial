@@ -1,6 +1,7 @@
 package _04.constructor.injection.model;
 
 public class Employee {
+	
 	private String name;
 	private String surname;
 	private long salary;

@@ -1,11 +1,9 @@
 package _03.setter.injection.test;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
-
-import _03.setter.injection.model.Computer;
 import _03.setter.injection.model.Employee;
 
-public class SetterInjectionTest {
+public class EmployeeSetterInjectionTest {
 
 	public static void main(String[] args) {
 
@@ -19,9 +17,6 @@ public class SetterInjectionTest {
 		Employee employee2 = ctx.getBean("empId2", Employee.class);
 		System.out.println(employee);
 		System.out.println(employee2);
-
-		Computer computer = ctx.getBean("computerId", Computer.class);
-		System.out.println(computer);
 
 		ctx.close();
 
