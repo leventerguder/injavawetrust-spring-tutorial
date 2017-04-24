@@ -34,10 +34,10 @@ public class AspectJTest {
 		} catch (Exception e) {
 
 		}
-		
+
 		System.out.println();
-		
-		//aop:around		
+
+		// aop:around
 		employeeService.getAllEmployees();
 		
 		

@@ -10,23 +10,24 @@ public class EmployeeService {
 	}
 
 	public void updateEmployee() {
-		// AuditServiceAspect#logafter will be invoked "after"
+		// AuditServiceAspect#logAfter will be invoked "after"
 		System.out.println("updateEmployee is invoked...");
 	}
 
 	public String getEmployeeId() {
-		// AuditServiceAspect#logafter will be invoked "after"
+		// AuditServiceAspect#logAfterReturning will be invoked "after-returning"
 		System.out.println("getEmployeeId is invoked...");
 		return "Emp-1000";
 	}
 
 	public void deleteEmployee() {
-		// AuditServiceAspect#logAfterThrowing will be invoked "after"
+		// AuditServiceAspect#logAfterThrowing will be invoked "after-throwing"
 		System.out.println("deleteEmployee is invoked...");
 		throw new RuntimeException();
 	}
 
 	public List<Object> getAllEmployees() {
+		// AuditServiceAspect#logAround will be invoked "after-throwing"
 		System.out.println("getAllEmployees is invoked...");
 		//
 		return null;
