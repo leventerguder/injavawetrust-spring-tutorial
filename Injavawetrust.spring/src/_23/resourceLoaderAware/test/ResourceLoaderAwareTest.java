@@ -14,7 +14,7 @@ public class ResourceLoaderAwareTest {
 	public static void main(String[] args) throws IOException {
 
 		// configuration file is not necessary. we didnt define bean.
-		ApplicationContext ctx = new ClassPathXmlApplicationContext();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("23.resourceLoaderAware.xml");
 
 		ResourceLoaderService resourceLoaderService = ctx.getBean("resourceLoaderService", ResourceLoaderService.class);
 		ResourceLoader resourceLoader = resourceLoaderService.getResourceLoader();
